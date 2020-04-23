@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Food</title>
+    <script src="live.js"></script>
+    <script>
+        debugger;
+        $(document).ready(function(){
+           $("#btndynamic").live("click",function(){
+                var No=$($(this).parent().parent().children()[0]).html();
+                var Name=$($(this).parent().parent().children()[1]).html();
+                var Price=$($(this).parent().parent().children()[2]).html();
+                
+                
+                
+                    $("#mytable2").append("<tr><td>"
+                                        +No+
+                                        "</td><td>"
+                                        +Name+
+                                        "</td><td>"
+                                        +Price+
+                                        "</td><td>"+
+                                         "<input type='text' id='txtqty'> <input type='button' id='add' value='+'><input type='button' id='del' value='-'> "+
+                                        "</td><td>"
+                                            
+                                        +"<input type='button' id='btnremove' value='X'></td></tr>");
+                                        
+                                        
+                            
+            });
+
+                $("#btnremove").live("click",function(){
+                $(this).parent().parent().remove();
+                 });
+                
+                
+
+                                
+        
+        
+        debugger;
+        $("#btn").click(function(){
+        debugger;
+        $.ajax({
+            url:"food.json",
+            contentType:"application/json",
+            type:"GET",
+            success:function(result){
+                debugger;
+                for(i=0;i<result.length;i++)
+                {
+                    $("#mytable").append("<tr><td>"
+                                        +result[i].No+
+                                        "</td><td>"
+                                        +result[i].FoodName+
+                                        "</td><td>"
+                                        +result[i].Price+
+                                        "</td><td>"+
+                                        "<img style='height:50px;width:100px' src='"+result[i].Photo+"'>"+
+                                        "</td><td><input type='button' empName='ABC' id='btndynamic' value='Add to Cart'>"+
+                                        "</td></tr>");
+                                        
+                }
+                },
+                
+                error: function (errDetails){
+                        debugger;
+                        alert(errDetails.responseText);
+                }
+            });
+        
+        });
+    });
+        
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="Get data">
+    <table border="1" id="mytable" style=" height:100px;width:100px"></table><br><br>
+    <table border="1" id="mytable2" style=" height:100px;width:100px">
+    </table>
+</body>
+</html>

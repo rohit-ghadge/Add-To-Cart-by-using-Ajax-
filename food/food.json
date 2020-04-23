@@ -1,0 +1,7 @@
+[
+    {"No":11,"FoodName": "Pizza", "Price":100, "Photo" : "pizza.jpg"  },
+    {"No":12,"FoodName": "Burger", "Price":60 , "Photo" : "burger.jpg"  },
+    {"No":13,"FoodName": "FrenchFries", "Price":50 , "Photo" : "french.jpg"  },
+    {"No":14,"FoodName": "Sandwitch", "Price":40  , "Photo" : "sand.jpg"  },
+    {"No":15,"FoodName": "Maggi", "Price":30  , "Photo" : "maggi.jpg"  }
+]
